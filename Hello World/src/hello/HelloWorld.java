@@ -6,12 +6,17 @@
 
 package hello;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Daniel
  */
 public class HelloWorld {
     public static void main (String args[]){
-        System.out.println("Hello World");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o seu nome: ");
+        String nome = sc.nextLine();
+        System.out.println("Hello,"+nome);
     }
 }
