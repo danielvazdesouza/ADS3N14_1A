@@ -14,8 +14,6 @@ public class Controller {
 	private ListaOrdenada<Integer>
 			lista = new ListaOrdenada<Integer>();
 	private ConsoleView view = new ConsoleView();
-	private Contatos contato[] = new Contatos[10];
-	private int countContatos;
 	
 	public void iniciaLista() {
 		for (int i = 0; i < 50; ++i) {
@@ -34,10 +32,12 @@ public class Controller {
 	}
 	
 	public void lerAgenda() throws FileNotFoundException{
-		Scanner scanner = new Scanner(new FileReader("agenda.txt")).useDelimiter("\\n");
+		Scanner scanner = new Scanner(new FileReader("agenda.txt"));
 		while(scanner.hasNext()){
-			String contato = scanner.nextLine();
-			System.out.println(contato);
+			int id = scanner.nextInt();
+			String nome = scanner.next();
+			int telefone = scanner.nextInt();
+			System.out.println(id+" "+nome +" "+ telefone);
 		}
 	}	
 }
