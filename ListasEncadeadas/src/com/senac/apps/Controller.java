@@ -1,6 +1,5 @@
 package com.senac.apps;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
@@ -10,6 +9,7 @@ import com.senac.estruturas.ListaOrdenada;
 import com.senac.estruturas.Nodo;
 
 public class Controller {
+	private Contato contato[] = new Contato[40];
 	
 	private ListaOrdenada<Integer>
 			lista = new ListaOrdenada<Integer>();
@@ -37,7 +37,7 @@ public class Controller {
 			int id = scanner.nextInt();
 			String nome = scanner.next();
 			int telefone = scanner.nextInt();
-			System.out.println(id+" "+nome +" "+ telefone);
+			contato[id] = new Contato(id, nome, telefone);
 		}
 	}	
 }
