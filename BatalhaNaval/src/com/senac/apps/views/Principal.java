@@ -100,23 +100,24 @@ public class Principal {
 	}
 
 	public void verificarAcerto(Matriz m) {
-		if(matrixOculta[m.getLinha()][m.getColuna()] != "."){
+		if (matrixOculta[m.getLinha()][m.getColuna()] != ".") {
 			matrix[m.getLinha()][m.getColuna()] = "O";
 			pontos += 3;
 		} else {
 			matrix[m.getLinha()][m.getColuna()] = "-";
 			pontos -= 1;
 		}
+		System.out.println("Pontuação: " + pontos);
 	}
 
 	public void jogar() {
 		criarMatriz();
 		criarNavios();
-		do{
+		do {
 			exibirMatriz();
 			atirar();
 			verificarAcerto(m);
-		} while(pontos > 0);
+		} while (isWinner());
 
 	}
 
@@ -255,5 +256,14 @@ public class Principal {
 			}
 		}
 		return false;
+	}
+
+	public boolean isWinner() {
+		if (pontos > 0) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 }
