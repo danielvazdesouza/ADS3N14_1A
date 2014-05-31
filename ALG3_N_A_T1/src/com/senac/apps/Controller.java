@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
 import com.senac.apps.views.ConsoleViews;
 import com.senac.estruturas.Contato;
 import com.senac.estruturas.ListaOrdenada;
@@ -19,6 +18,7 @@ public class Controller<T extends Comparable<T>> {
 	Contato c = new Contato();
 	private Scanner sc = new Scanner(System.in);
 	private FileWriter fw;
+	private Nodo<Contato> resultsetContatos;
 
 	public void cadastrarContato() {
 
@@ -62,4 +62,22 @@ public class Controller<T extends Comparable<T>> {
 			e.printStackTrace();
 		}
 	}
+
+	public void pesquisarContato(String nome) {
+		lerArquivo();
+		Nodo<Contato> contatos = lista.getHead();
+		do {
+			if (contatos.getChave() != null) {
+				if (contatos.getChave().getNome().startsWith(nome)) {
+					resultsetContatos = contatos;
+					System.out.println(resultsetContatos.getChave().getNome()
+							+ " " + resultsetContatos.getChave().getTelefone());
+					break;
+				} else {
+					contatos = contatos.getNext();
+				}
+			}
+		} while (contatos != null);
+	}//fim do pesquisarContato
+
 }

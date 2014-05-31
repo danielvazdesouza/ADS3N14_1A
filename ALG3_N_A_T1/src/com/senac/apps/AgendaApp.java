@@ -18,7 +18,7 @@ public class AgendaApp {
 		do {
 			System.out
 					.println("\nDigite a opção que deseja executar ou qualquer outro número para sair:\n"
-							+ "1 - Adicionar contato\n2 - Listar Contatos\n3 - Remover Contatos");
+							+ "1 - Adicionar contato\n2 - Listar Contatos\n3 - Remover Contatos\n4 - Pesquisar Contato");
 
 			switch (sc.nextInt()) {
 			case 1:
@@ -28,6 +28,10 @@ public class AgendaApp {
 			case 2:
 				c.lerArquivo();
 				break;
+				
+			case 4:
+				System.out.println("Nome do contato: ");
+				c.pesquisarContato(sc.next());
 
 			default:
 				k = false;
