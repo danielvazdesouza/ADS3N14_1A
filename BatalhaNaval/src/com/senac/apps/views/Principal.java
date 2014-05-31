@@ -264,6 +264,5 @@ public class Principal {
 		} else {
 			return false;
 		}
-
 	}
 }
